@@ -1,9 +1,19 @@
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Success from './pages/Success';
+import NotFound from './pages/NotFound';
+import './App.css';
+const App = () => {
   return (
-    <>
-      <h1 className="px-2">hello world</h1>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
