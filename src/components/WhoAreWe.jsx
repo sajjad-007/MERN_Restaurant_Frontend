@@ -8,7 +8,7 @@ const WhoAreWe = () => {
         <div className="text_banner">
           {data[0].who_we_are.slice(0, 2).map(item => (
             <div className="card" key={item.id}>
-              <h1>{item.number}</h1>
+              <h1 style={{ fontWeight: 'normal' }}>{item.number}</h1>
               <p>{item.title}</p>
             </div>
           ))}
@@ -20,7 +20,7 @@ const WhoAreWe = () => {
         <div className="text_banner">
           {data[0].who_we_are.slice(2, 4).map(item => (
             <div className="card" key={item.id}>
-              <h1>{item.number}</h1>
+              <h1 style={{ fontWeight: 'normal' }}>{item.number}</h1>
               <p>{item.title}</p>
             </div>
           ))}

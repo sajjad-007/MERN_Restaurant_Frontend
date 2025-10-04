@@ -633,6 +633,9 @@ nav svg {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background: #fff;
+  color: #000;
+  padding: 120px 0;
 }
 .team .container {
   max-width: 1500px;
@@ -886,6 +889,8 @@ footer .container .banner .right {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
+  background-color: #fff;
+  /* color:#000; */
 }
 .reservation .container {
   max-width: 1500px;
@@ -897,8 +902,9 @@ footer .container .banner .right {
   padding: 50px;
 }
 .reservation .container .banner .reservation_form_box {
-  width: 400px;
+  width: 420px;
   background: #fff;
+  border-radius: 30px;
   height: 100%;
   padding: 20px;
   box-shadow: -1px 0px 37px 0px rgba(152, 87, 191, 0.75);
@@ -909,6 +915,8 @@ footer .container .banner .right {
   display: flex;
   gap: 25px;
   margin-bottom: 20px;
+  border-radius: 2%;
+  overflow: hidden;
 }
 .reservation .container .banner .reservation_form_box form div input {
   flex: 1;
@@ -918,6 +926,7 @@ footer .container .banner .right {
   border: none;
   border-bottom: 1px solid #333;
   background: transparent;
+  color: #000;
 }
 .reservation .container .banner .reservation_form_box form input[type='email'] {
   width: 100%;
@@ -970,16 +979,18 @@ footer .container .banner .right {
   color: #222;
 }
 .reservation .container .banner .reservation_form_box h1 {
-  font-weight: 200;
+  font-weight: 400;
   font-size: 2.75rem;
   color: #111;
   text-align: center;
+  margin-top: 10px;
 }
 .reservation .container .banner .reservation_form_box p {
   color: #333;
   font-size: 18px;
   font-weight: 300;
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 .reservation .container .banner:first-child {
@@ -999,10 +1010,15 @@ footer .container .banner .right {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 16px;
   color: #111;
   background: transparent;
   margin-top: 30px;
+}
+.reservation .container .banner .reservation_form_box form button:hover {
+  color: #fff;
+  background: #000;
+  transition: all linear .2s;
 }
 .reservation .container .banner .reservation_form_box form button span {
   margin-left: 1rem;

@@ -9,8 +9,7 @@ const Menu = () => {
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam
             tempora atque inventore fuga eos. Ipsa excepturi atque in eligendi
-            quam hic expedita! Nostrum optio qui quidem harum provident.
-            Dolores, officia.
+            quam hic expedita.
           </p>
         </div>
         <div className="dishes_container">
