@@ -15,8 +15,8 @@
 /**********************************************************************************************************************/
 nav {
   display: flex;
+  width: 100%;
   max-width: 1500px;
-  min-width: 1500px;
   padding: 25px 10px 40px 10px;
   margin-bottom: 25px;
   justify-content: space-between;
@@ -161,18 +161,29 @@ nav svg {
   flex-direction: column;
   min-height: 80vh;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   background: url(/public/background.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
-  padding: 0 15px;
+  padding: 0;
 }
 .heroSection .container {
   display: flex;
+  width: 100%;
   max-width: 1200px;
-  min-width: 1200px;
+  margin: 0 auto;
 }
+
+@media (min-width: 1230px) {
+  .heroSection .container {
+    max-width: 100vw;
+    width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .heroSection .container .banner:first-child {
   flex: 2;
   display: flex;
@@ -335,15 +346,16 @@ nav svg {
   background-color: #f9fbf2;
 }
 .about .container {
+  width: 100%;
   max-width: 1500px;
-  min-width: 1500px;
   display: flex;
 }
 .about .container .banner {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space; */
+  /* gap: 10px; */
 }
 .about .container .banner img {
   width: 100%;
@@ -368,7 +380,7 @@ nav svg {
 }
 .about .container .banner a {
   border: 1px solid black;
-  padding: 8px 28px;
+  padding: 12px 30px;
   border-radius: 30px;
   display: flex;
   width: fit-content;
@@ -380,7 +392,8 @@ nav svg {
 }
 .about .container .banner a span {
   margin-left: 1rem;
-  padding: 6px;
+  padding: 4px 8px;
+  font-size: 20px;
   background: #111;
   border-radius: 100%;
   color: #fff;
