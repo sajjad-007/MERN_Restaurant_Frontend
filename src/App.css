@@ -15,13 +15,13 @@
 /**********************************************************************************************************************/
 nav {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 1500px;
   padding: 25px 10px 40px 10px;
   margin-bottom: 25px;
-  justify-content: space-between;
   position: relative;
-  align-items: center;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
 }
@@ -166,7 +166,9 @@ nav svg {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
-  padding: 0;
+  padding: 0 0 120px 0;
+  background-color: #fff;
+  color: #222;
 }
 .heroSection .container {
   display: flex;
@@ -191,7 +193,7 @@ nav svg {
 }
 .heroSection .container .banner .largeBox {
   width: 100%;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
 }
 .heroSection .container .banner .combined_boxes {
   display: flex;
@@ -354,7 +356,7 @@ nav svg {
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* justify-content: space; */
+  justify-content: space-evenly;
   /* gap: 10px; */
 }
 .about .container .banner img {
@@ -371,6 +373,7 @@ nav svg {
   font-weight: 300;
   letter-spacing: 2px;
   word-spacing: 5px;
+  color: black;
 }
 .about .container .banner .top p {
   font-size: 18px;
@@ -392,7 +395,7 @@ nav svg {
 }
 .about .container .banner a span {
   margin-left: 1rem;
-  padding: 4px 8px;
+  padding: 8px;
   font-size: 20px;
   background: #111;
   border-radius: 100%;
@@ -457,6 +460,8 @@ nav svg {
   padding: 75px 20px;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  color: #222;
 }
 .qualities .container {
   min-width: 1500px;
@@ -528,7 +533,9 @@ nav svg {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  padding: 100px 20px;
+  background-color: #fff;
+  color: #222;
 }
 .menu .container {
   max-width: 1500px;
@@ -577,7 +584,8 @@ nav svg {
   font-size: 16px;
 }
 .menu .container .dishes_container .card:hover img {
-  transition: 0.3s;
+  transition: all linear 0.3s;
+  /* transition: 0.3s; */
   transform: scale(1.03);
 }
 @media (max-width: 1520px) {
@@ -708,6 +716,8 @@ nav svg {
   justify-content: center;
   align-items: center;
   min-height: 80vh;
+  background: #fff;
+  color: #000;
 }
 .who_are_we .container {
   max-width: 1500px;

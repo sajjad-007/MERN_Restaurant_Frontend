@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <div className="about" id="about">
+    <section className="about" id="about">
       <div className="container">
         <div className="banner">
           <div className="top">
@@ -12,17 +12,23 @@ const About = () => {
             <p>We love to eat delicious food</p>
           </div>
           <p className="mid">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate necessitatibus rerum, tenetur culpa, minus debitis delectus possimus accusamus minima nulla esse explicabo vel temporibus maxime ipsam. Facere accusamus optio vero!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            necessitatibus rerum, tenetur culpa, minus debitis delectus possimus
+            accusamus minima nulla esse explicabo vel temporibus maxime ipsam.
+            Facere accusamus optio vero!
           </p>
-            <Link to="/">
-                Explore More <span><HiOutlineArrowNarrowRight/></span>
-            </Link>
+          <Link to="/">
+            Explore More{' '}
+            <span>
+              <HiOutlineArrowNarrowRight />
+            </span>
+          </Link>
         </div>
         <div className="banner">
-            <img src="/about.png" alt="about img not found" />
+          <img src="/about.png" alt="about img not found" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
