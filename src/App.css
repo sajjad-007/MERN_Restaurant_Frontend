@@ -68,6 +68,7 @@ nav .menuBtn {
   padding: 8px 20px;
   color: black;
   background: transparent;
+  /* background: #000; */
   border: 1px solid #333;
   border-radius: 20px;
   font-size: 16px;
@@ -170,11 +171,31 @@ nav svg {
   background-color: #fff;
   color: #222;
 }
-.heroSection .container {
+/* Responsive hero section container */
+.heroSection .container,
+.hero-container-responsive {
   display: flex;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1280px) {
+  .heroSection .container,
+  .hero-container-responsive {
+    max-width: 100vw;
+    width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 900px) {
+  .heroSection .container,
+  .hero-container-responsive {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+  }
 }
 
 @media (min-width: 1230px) {
@@ -1018,7 +1039,7 @@ footer .container .banner .right {
 .reservation .container .banner .reservation_form_box form button:hover {
   color: #fff;
   background: #000;
-  transition: all linear .2s;
+  transition: all linear 0.2s;
 }
 .reservation .container .banner .reservation_form_box form button span {
   margin-left: 1rem;
@@ -1087,13 +1108,22 @@ footer .container .banner .right {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
+  background-color: #fff;
+  width: 100vw;
+  margin: 0 auto;
+  padding: 40px 10px;
 }
 .notFound .container {
-  max-width: 1500px;
+  max-width: 500px;
+  width: 100%;
   text-align: center;
+  margin: 0 auto;
 }
 .notFound .container img {
   margin-bottom: 2rem;
+
+  /* height: 100%; */
+  /* width: 100%; */
 }
 .notFound .container h1 {
   font-size: 2.75rem;
@@ -1138,13 +1168,22 @@ footer .container .banner .right {
 }
 @media (max-width: 600px) {
   .notFound {
-    padding: 30px 20px;
+    padding: 30px 5vw;
+  }
+  .notFound .container {
+    max-width: 95vw;
+    min-width: unset;
   }
   .notFound .container img {
     width: 100%;
+    max-width: 220px;
   }
   .notFound .container h1 {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
+}
+
+.successPage .container h1 {
+  font-size: 2rem;
 }
 /**********************************************************************************************************************/

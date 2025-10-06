@@ -1,46 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import axios from 'axios';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
 const BookNow = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [phone, setPhone] = useState(0);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleReservation = async e => {
-    e.preventDefault();
+  const handleBookNow = async myData => {
+    setLoading(true);
+
     try {
       const { data } = await axios.post(
-        'http://localhost:4000/api/v1/send',
-        { firstName, lastName, email, phone, date, time },
+        'http://localhost:4000/api/v1/reservation/send',
+        myData, // ✅ fixed variable name (was 'formDataata')
         {
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json', // ✅ correct type for FormData
           },
           withCredentials: true,
         }
       );
-      toast.success(data?.message);
-      setFirstName('');
-      setLastName('');
-      setPhone(0);
-      setEmail('');
-      setTime('');
-      setDate('');
-      navigate('/success');
+
+      toast.success(data?.message || 'Reservation successful!');
+      console.log(data);
+      setLoading(false);
+      setTimeout(() => {
+        navigate('/success');
+      }, 2000);
     } catch (error) {
-        if (error?.response?.data?.message) {
-            toast.error(error?.response?.data?.message);
-        }
-        toast.error(error.message);
-        console.error(error.message)
+      console.error(error);
+      toast.error(error?.response?.data?.message || 'Something went wrong.');
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -48,59 +48,63 @@ const BookNow = () => {
     <section className="reservation" id="reservation">
       <div className="container">
         <div className="banner">
-          <img src="/reservation.png" alt="res" />
+          <img src="/reservation.png" alt="Reservation" />
         </div>
         <div className="banner">
           <div className="reservation_form_box">
             <h1>MAKE A RESERVATION</h1>
             <p>For Further Questions, Please Call</p>
-            <form>
+
+            <form onSubmit={handleSubmit(handleBookNow)}>
               <div>
                 <input
                   type="text"
-                  placeholder="First Name"
-                  value={firstName}
-                  onChange={e => setFirstName(e.target.value)}
+                  name="fullName"
+                  placeholder="Full Name"
+                  {...register('fullName', {
+                    required: 'Full name is required',
+                  })}
                 />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={e => setLastName(e.target.value)}
-                />
+                {/* {errors.fullName && <p>{errors.fullName.message}</p>} */}
               </div>
+
               <div>
                 <input
                   type="date"
-                  placeholder="Date"
-                  value={date}
-                  onChange={e => setDate(e.target.value)}
+                  name="date"
+                  {...register('date', { required: 'Date is required' })}
                 />
                 <input
                   type="time"
-                  placeholder="Enter time"
-                  value={time}
-                  onChange={e => setTime(e.target.value)}
+                  name="time"
+                  {...register('time', { required: 'Time is required' })}
                 />
               </div>
+
               <div>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
                   className="email_tag"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
+                  {...register('email', { required: 'Email is required' })}
                 />
                 <input
                   type="number"
-                  placeholder="Phone"
-                  value={phone}
-                  onChange={e => setPhone(e.target.value)}
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  {...register('phoneNumber', {
+                    required: 'Phone number is required',
+                  })}
                 />
               </div>
-              <button type="submit" onClick={handleReservation} >
-                Book Now
-              </button>
+
+              {loading ? (
+                <button>Please wait..</button>
+              ) : (
+                <button type="submit">Book Now</button>
+              )}
+              {/* <button type="submit">Book Now</button> */}
             </form>
           </div>
         </div>

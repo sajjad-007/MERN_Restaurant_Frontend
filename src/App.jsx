@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Success from './pages/Success';
 import NotFound from './pages/NotFound';
 import './App.css';
+import { Toaster } from 'react-hot-toast';
 const App = () => {
   return (
     <Router>
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/success" element={<Success />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Toaster />
     </Router>
   );
 };

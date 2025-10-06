@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="banner">
-          <h1 className="left heading">ZEESHU</h1>
+          <h1 className="left heading">Sajjad Hossain</h1>
           <div className="right">
             <p>Jigatola Dhanmondi-32, Dhaka</p>
             <p>Open: 10:00 PM - 12:00 AM</p>
