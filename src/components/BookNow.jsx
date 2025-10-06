@@ -19,7 +19,7 @@ const BookNow = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:4000/api/v1/reservation/send',
+        'https://mern-restaurant-backend-1j0g.onrender.com/api/v1/reservation/send',
         myData, // ✅ fixed variable name (was 'formDataata')
         {
           headers: {
